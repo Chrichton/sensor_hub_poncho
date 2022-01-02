@@ -30,3 +30,18 @@ To start your Nerves app:
   * Forum: https://elixirforum.com/c/nerves-forum
   * Discussion Slack elixir-lang #nerves ([Invite](https://elixir-slackin.herokuapp.com/))
   * Source: https://github.com/nerves-project/nerves
+
+## Upload new firmware
+
+* new zsh
+* cd .ssh
+* mv id_rsa.pub-yubikey id_rsa.pub
+* mix firmware
+* mix upload
+* mv id_rsa.pub id_rsa.pub-yubikey
+* ssh nerves.local
+
+## SGP30 Gas Sensor (Bosch)
+
+* {:ok, sgp} = SGP30.start_link()
+* SGP30.state (every second a new measurement is started)
