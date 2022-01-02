@@ -47,10 +47,14 @@ To start your Nerves app:
 
 ## SGP30 Gas Sensor (Bosch)
 
+https://hex.pm/packages/sgp30
+
 * {:ok, sgp} = SGP30.start_link()
 * SGP30.state (every second a new measurement is started)
 
 ## BME680 Environmental Sensor (Bosch)
+
+https://hex.pm/packages/elixir_bme680
 
 * {:ok, pid} = Bme680.start_link(i2c_address: 0x77)
 * measurement = Bme680.measure(pid)
