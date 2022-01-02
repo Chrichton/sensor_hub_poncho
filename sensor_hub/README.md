@@ -61,3 +61,9 @@ https://hex.pm/packages/elixir_bme680
 
 ###
 Note that, due to the nature of the BME680 gas resistance sensor, the gas resistance measurement needs a warm-up in order to give stable measurements. One possible strategy is to perform continuous meaurements in a loop until the value stabilizes. That might take from a few seconds to several minutes (or more when the sensor is brand new).
+
+## AS7262 Spectal Sensor
+
+https://www.sparkfun.com/products/14347
+
+https://github.com/sparkfun/Sparkfun_AS726X_Arduino_Library
