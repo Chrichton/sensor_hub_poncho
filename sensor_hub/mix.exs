@@ -37,6 +37,7 @@ defmodule SensorHub.MixProject do
       {:toolshed, "~> 0.2.13"},
       {:circuits_i2c, "~> 0.3.8"},
       {:sgp30, "~> 0.1"},
+      {:elixir_bme680, "~> 0.2.2"},
 
       # Dependencies for all targets except :host
       {:nerves_runtime, "~> 0.11.3", targets: @all_targets},

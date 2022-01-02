@@ -41,7 +41,19 @@ To start your Nerves app:
 * mv id_rsa.pub id_rsa.pub-yubikey
 * ssh nerves.local
 
+## Detect Devices
+
+* Circuits.I2C.detect_devices
+
 ## SGP30 Gas Sensor (Bosch)
 
 * {:ok, sgp} = SGP30.start_link()
 * SGP30.state (every second a new measurement is started)
+
+## BME680 Environmental Sensor (Bosch)
+
+* {:ok, pid} = Bme680.start_link(i2c_address: 0x77)
+* measurement = Bme680.measure(pid)
+
+###
+Note that, due to the nature of the BME680 gas resistance sensor, the gas resistance measurement needs a warm-up in order to give stable measurements. One possible strategy is to perform continuous meaurements in a loop until the value stabilizes. That might take from a few seconds to several minutes (or more when the sensor is brand new).
