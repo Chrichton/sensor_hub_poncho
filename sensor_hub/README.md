@@ -33,12 +33,17 @@ To start your Nerves app:
 
 ## Upload new firmware
 
+### VS-Code-Terminal
+* export MIX_TARGET=rpi0
+
 * new zsh
 * cd .ssh
 * mv id_rsa.pub-yubikey id_rsa.pub
 * mix firmware
 * mix upload
 * mv id_rsa.pub id_rsa.pub-yubikey
+
+### VS-Code-Terminal
 * ssh nerves.local
 
 ## Detect Devices
@@ -50,14 +55,49 @@ To start your Nerves app:
 https://hex.pm/packages/sgp30
 
 * {:ok, sgp} = SGP30.start_link()
-* SGP30.state (every second a new measurement is started)
+* SGP30.state #(every second a new measurement is started)
+
+%SGP30{
+  address: 88,
+  co2_eq_ppm: 400,
+  ethanol_raw: 17258,
+  h2_raw: 12604,
+  i2c: #Reference<0.3582714447.268828675.192322>,
+  serial: 28876075,
+  tvoc_ppb: 0
+}
 
 ## BME680 Environmental Sensor (Bosch)
 
+###
+https://hex.pm/packages/BMP280
+
+* BMP280.start_link([i2c_address: 0x77, name: BMP280])
+* BMP280.read(BMP280)
+
+{:ok,
+ %BMP280.Measurement{
+   altitude_m: -21.582447576278796,
+   dew_point_c: 11.672216761572129,
+   gas_resistance_ohms: 5605.027499703102,
+   humidity_rh: 47.502034595712374,
+   pressure_pa: 100256.10940496085,
+   temperature_c: 23.468890934417686,
+   timestamp_ms: 123672
+ }}
+
+###
 https://hex.pm/packages/elixir_bme680
 
 * {:ok, pid} = Bme680.start_link(i2c_address: 0x77)
 * measurement = Bme680.measure(pid)
+
+%Bme680.Measurement{
+  gas_resistance: 2065,
+  humidity: 49.47,
+  pressure: 1002.54,
+  temperature: 22.66
+}
 
 ###
 Note that, due to the nature of the BME680 gas resistance sensor, the gas resistance measurement needs a warm-up in order to give stable measurements. One possible strategy is to perform continuous meaurements in a loop until the value stabilizes. That might take from a few seconds to several minutes (or more when the sensor is brand new).
