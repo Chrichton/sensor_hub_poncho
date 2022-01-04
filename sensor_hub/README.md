@@ -107,3 +107,19 @@ Note that, due to the nature of the BME680 gas resistance sensor, the gas resist
 https://www.sparkfun.com/products/14347
 
 https://github.com/sparkfun/Sparkfun_AS726X_Arduino_Library
+
+## Starting sensors with Supervisor
+
+* Supervisor.which_children(SensorHub.Supervisor)
+[
+  {BMP280, #PID<0.1207.0>, :worker, [BMP280]},
+  {SGP30, #PID<0.1206.0>, :worker, [SGP30]}
+]
+
+* BMP280 |> Sensor.new() |> Sensor.measure()
+%{
+  altitude_m: 39.76537983156137,
+  pressure_pa: 99529.50900235256,
+  temperature_c: 23.325976088028256
+}
+
