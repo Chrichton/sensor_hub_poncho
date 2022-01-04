@@ -41,6 +41,7 @@ defmodule SensorHub.MixProject do
       {:veml6030, path: "../veml6030", targets: @all_targets},
       {:sgp30, "~> 0.1", targets: @all_targets},
       {:bmp280, "~> 0.2.5", targets: @all_targets},
+      {:publisher, path: "../publisher", targets: @all_targets},
       {:nerves_runtime, "~> 0.11.3", targets: @all_targets},
       {:nerves_pack, "~> 0.6.0", targets: @all_targets},
 
