@@ -36,10 +36,11 @@ defmodule SensorHub.MixProject do
       {:ring_logger, "~> 0.8.1"},
       {:toolshed, "~> 0.2.13"},
       {:circuits_i2c, "~> 0.3.8"},
-      {:sgp30, "~> 0.1"},
-      {:bmp280, "~> 0.2.5"},
 
       # Dependencies for all targets except :host
+      {:veml6030, path: "../veml6030", targets: @all_targets},
+      {:sgp30, "~> 0.1", targets: @all_targets},
+      {:bmp280, "~> 0.2.5", targets: @all_targets},
       {:nerves_runtime, "~> 0.11.3", targets: @all_targets},
       {:nerves_pack, "~> 0.6.0", targets: @all_targets},
 
