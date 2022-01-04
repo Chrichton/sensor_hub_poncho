@@ -20,5 +20,19 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
 
 ## Before starting the Phoenix server, you have to start the Timescale-DB Docker Container
 
+### First shell
 * docker-compose up
+
+### Second shell
+* mix ecto.setup
+* mix phx.server
+
+### Third shell
+directory 'sensor_hub'
+
+* ssh nerves.local
+* RingLogger.attach()
+
+
+
 
