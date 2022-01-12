@@ -39,7 +39,7 @@ defmodule SensorHub.Application do
       # {SensorHub.Worker, arg},
       {SGP30, []},
       {BMP280, [i2c_address: 0x77, name: BMP280]},
-      # {VEML6030, %{}},
+      {VEML6030, %{}},
       {Finch, name: WeatherTrackerClient},
       {
         Publisher,
@@ -52,8 +52,7 @@ defmodule SensorHub.Application do
   end
 
   defp sensors do
-    # Sensor.new(VEML6030),
-    [Sensor.new(BMP280), Sensor.new(SGP30)]
+    [Sensor.new(BMP280), Sensor.new(SGP30), Sensor.new(VEML6030)]
   end
 
   defp weather_tracker_url do
