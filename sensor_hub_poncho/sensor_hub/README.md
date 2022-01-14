@@ -114,6 +114,16 @@ https://www.sparkfun.com/products/14347
 
 https://github.com/sparkfun/Sparkfun_AS726X_Arduino_Library
 
+## SparkFun Qwiic OLED Display (0.91 in, 128x32)
+
+https://www.sparkfun.com/products/17153
+https://hex.pm/packages/oled
+https://github.com/luisgabrielroldan/chisel
+https://github.com/whitelynx/artwiz-fonts-wl
+
+SensorHub.MyDisplay.rect(0, 0, 127, 31)
+SensorHub.MyDisplay.display()
+
 ## Starting sensors with Supervisor
 
 * Supervisor.which_children(SensorHub.Supervisor)
