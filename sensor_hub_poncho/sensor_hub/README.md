@@ -48,7 +48,13 @@ To start your Nerves app:
 
 ## Detect Devices
 
-* Circuits.I2C.detect_devices
+* Circuits.I2C.detect_devices()
+
+Devices on I2C bus "i2c-1":
+ * 60  (0x3C) -> Display
+ * 72  (0x48)
+ * 73  (0x49)
+ * 119 (0x77)
 
 ## SGP30 Gas Sensor (Bosch)
 
@@ -112,8 +118,11 @@ https://github.com/sparkfun/Sparkfun_AS726X_Arduino_Library
 
 * Supervisor.which_children(SensorHub.Supervisor)
 [
-  {BMP280, #PID<0.1207.0>, :worker, [BMP280]},
-  {SGP30, #PID<0.1206.0>, :worker, [SGP30]}
+  {Publisher, #PID<0.1409.0>, :worker, [Publisher]},
+  {Finch, #PID<0.1404.0>, :supervisor, [Finch]},
+  {VEML6030, #PID<0.1403.0>, :worker, [VEML6030]},
+  {BMP280, #PID<0.1402.0>, :worker, [BMP280]},
+  {SGP30, #PID<0.1401.0>, :worker, [SGP30]}
 ]
 
 * BMP280 |> Sensor.new() |> Sensor.measure()

@@ -92,6 +92,24 @@ config :mdns_lite,
 
 config :sensor_hub, :weather_tracker_url, "http://192.168.178.90:4000/api/weather-conditions"
 
+# config :ssd1306,
+#   devices: [
+#     %{bus: "i2c-1", address: 0x3C, reset_pin: 17}
+#   ]
+
+# config :ssd1306,
+#   devices: [
+#     %{bus: "i2c-1", address: 0x3C, name: :display0, width: 128, height: 32}
+#   ]
+
+config :sensor_hub, SensorHub.MyDisplay,
+  device: "i2c-1",
+  driver: :ssd1306,
+  type: :i2c,
+  width: 128,
+  height: 32,
+  address: 0x3C
+
 # Import target specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 # Uncomment to use target specific configurations

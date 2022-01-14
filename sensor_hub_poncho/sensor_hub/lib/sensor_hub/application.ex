@@ -47,7 +47,8 @@ defmodule SensorHub.Application do
           sensors: sensors(),
           weather_tracker_url: weather_tracker_url()
         }
-      }
+      },
+      SensorHub.MyDisplay
     ]
   end
 
