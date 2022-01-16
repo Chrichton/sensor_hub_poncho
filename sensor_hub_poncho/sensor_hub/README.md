@@ -142,3 +142,7 @@ SensorHub.MyDisplay.display()
   temperature_c: 23.325976088028256
 }
 
+## Logging
+
+* log_attach
+* log_detach

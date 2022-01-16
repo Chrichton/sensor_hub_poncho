@@ -39,6 +39,7 @@ defmodule SensorHub.MixProject do
 
       # Dependencies for all targets except :host
       {:oled, "~> 0.3", targets: @all_targets},
+      {:chisel, "~> 0.2.0", targets: @all_targets},
       # {:ssd1306, "~> 0.1.1", targets: @all_targets},
       {:veml6030, path: "../veml6030", targets: @all_targets},
       {:sgp30, "~> 0.1", targets: @all_targets},
