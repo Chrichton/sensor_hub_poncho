@@ -12,7 +12,8 @@ defmodule Publisher do
       interval: options[:interval] || 10_000,
       weather_tracker_url: options[:weather_tracker_url],
       sensors: options[:sensors],
-      measurements: :no_measurements
+      measurements: :no_measurements,
+      display: options[:display]
     }
 
     schedule_next_publish(state.interval)
@@ -40,16 +41,21 @@ defmodule Publisher do
   end
 
   defp publish(state) do
-    result =
-      :post
-      |> Finch.build(
-        state.weather_tracker_url,
-        [{"Content-Type", "application/json"}],
-        Jason.encode!(state.measurements)
-      )
-      |> Finch.request(WeatherTrackerClient)
+    # result =
+    #   :post
+    #   |> Finch.build(
+    #     state.weather_tracker_url,
+    #     [{"Content-Type", "application/json"}],
+    #     Jason.encode!(state.measurements)
+    #   )
+    #   |> Finch.request(WeatherTrackerClient)
 
-    Logger.debug("Server response: #{inspect(result)}")
+    # Logger.debug("Server response: #{inspect(result)}")
+
+    state.display.print(state.measurements)
+
+    Logger.debug("printed: #{inspect(state.measurements)}")
+
     schedule_next_publish(state.interval)
     state
   end

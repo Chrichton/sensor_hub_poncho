@@ -45,7 +45,8 @@ defmodule SensorHub.Application do
         Publisher,
         %{
           sensors: sensors(),
-          weather_tracker_url: weather_tracker_url()
+          weather_tracker_url: weather_tracker_url(),
+          display: SensorHub.MyDisplay
         }
       },
       SensorHub.MyDisplay
