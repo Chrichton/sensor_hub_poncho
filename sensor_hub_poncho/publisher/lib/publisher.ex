@@ -41,17 +41,6 @@ defmodule Publisher do
   end
 
   defp publish(state) do
-    # result =
-    #   :post
-    #   |> Finch.build(
-    #     state.weather_tracker_url,
-    #     [{"Content-Type", "application/json"}],
-    #     Jason.encode!(state.measurements)
-    #   )
-    #   |> Finch.request(WeatherTrackerClient)
-
-    # Logger.debug("Server response: #{inspect(result)}")
-
     state.display.print(state.measurements)
 
     Logger.debug("printed: #{inspect(state.measurements)}")

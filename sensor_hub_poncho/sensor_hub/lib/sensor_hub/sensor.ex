@@ -1,6 +1,4 @@
 defmodule SensorHub.Sensor do
-  alias SensorHub.MyDisplay
-
   defstruct [:name, :fields, :read, :convert]
 
   def new(name) do
@@ -23,7 +21,6 @@ defmodule SensorHub.Sensor do
   def convert_fn(SGP30) do
     fn reading ->
       Map.take(reading, [:co2_eq_ppm, :tvoc_ppb])
-      |> MyDisplay.print()
     end
   end
 
