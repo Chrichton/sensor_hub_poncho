@@ -38,9 +38,9 @@ defmodule SensorHub.MyDisplay do
 
     clear()
     Chisel.Renderer.draw_text("Co2:" <> co2, 0, 0, font, put_pixel)
-    Chisel.Renderer.draw_text("tvoc:" <> tvoc, 70, 0, font, put_pixel)
+    Chisel.Renderer.draw_text("tvoc:" <> tvoc, 66, 0, font, put_pixel)
     Chisel.Renderer.draw_text("#{temperature_c}°C", 0, 16, font, put_pixel)
-    Chisel.Renderer.draw_text("#{pressure_bar} bar", 64, 16, font, put_pixel)
+    Chisel.Renderer.draw_text("#{pressure_bar} bar", 60, 16, font, put_pixel)
     display()
 
     map
